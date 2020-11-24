@@ -1,0 +1,27 @@
+<%- include("partials/header"); -%>
+
+    <body>
+        <%- include("partials/navbar"); -%>
+            <br>
+            <div class="container intro">
+                <p>Have any other questions?</p>
+                <form action="/contact" method="post">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <input type="text" class="contact" name="contactName" placeholder="Name">
+                            <input type="email" class="contact" name="contactEmail" placeholder="Email">
+                            <input type="text" class="contact" name="contactSubject" placeholder="Subject">
+                        </div>
+                    </div>
+                    <h3>Let's Chat</h3>
+                    <div class="row justify-content-center">
+
+                        <textarea class="contact" cols="60" rows="10" name="contactMessage" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+                </form>
+            </div>
+
+            <%- include("partials/footer"); -%>
+
+    </body>

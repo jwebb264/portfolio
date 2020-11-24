@@ -1,0 +1,30 @@
+<!-- <%- include("header"); %> -->
+
+<!-- Can't get it to link to the javascript page for some reason. -->
+
+<script type="text/javascript" src="../../app.js"></script>
+
+<% let copyrightDate = new Date().getFullYear(); %>
+
+
+    <div class="card text-center social-center">
+        <footer class="footer bg-dark">
+            <div class="card-body">
+                <div class="icon-bar text-dark">
+                    <a href="#" class="facebook"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="google"><i class="fab fa-google fa-lg"></i></a>
+                    <a href="#" class="linkedin"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#" class="github"><i class="fab fa-github fa-lg"></i></a>
+                </div>
+            </div>
+
+
+            <div class="card-footer">
+
+                <p id="footer">Copyright
+                    <%= copyrightDate %> J Huff</p>
+
+            </div>
+        </footer>
+    </div>

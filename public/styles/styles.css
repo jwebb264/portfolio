@@ -1,0 +1,60 @@
+:root {
+    --dark-grey: #263238;
+    --med-grey: #787878;
+    --light-grey: #f7f7f7;
+}
+
+body {
+    background-color: --var(--light-grey);
+    text-align: center;
+}
+
+.intro {
+    text-align: center;
+    font-size: large;
+    padding: 5rem;
+}
+
+.card-deck {
+    border: none;
+    background-color: var(--light-grey);
+    padding: 1%;
+}
+
+.icon {
+    height: 100px;
+    width: 100px;
+}
+
+.attribution {
+    font-size: xx-small;
+}
+
+
+/* Footer */
+
+.social-center {
+    /* background-color: #37474F; */
+    color: var(--med-grey);
+}
+
+i.fab {
+    color: var(--med-grey);
+    padding: 0vw 2vw;
+}
+
+i.fab:hover {
+    color: var(--light-grey);
+}
+
+.card-footer {
+    padding: 0rem 0.5rem;
+}
+
+
+/* Contact Page */
+
+.contact {
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
