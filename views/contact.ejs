@@ -5,7 +5,7 @@
             <br>
             <div class="container intro">
                 <p>Have any other questions?</p>
-                <form action="/contact" method="post">
+                <form action="/contact" method="POST">
                     <div class="row align-items-center">
                         <div class="col">
                             <input type="text" class="contact" name="contactName" placeholder="Name">
@@ -15,12 +15,16 @@
                     </div>
                     <h3>Let's Chat</h3>
                     <div class="row justify-content-center">
-
                         <textarea class="contact" cols="60" rows="10" name="contactMessage" placeholder="Message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+                    <!-- <div>
+                        <input type="file" id="myFile" name="filename" placeholder="Upload File">
+                    </div> -->
+                    <input type="button" value="Send Email" class="contact-submit btn btn-dark btn-lg" onclick="sendEmail()"></input>
                 </form>
             </div>
+            <script type="text/javascript" src="../app.js"></script>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
 
             <%- include("partials/footer"); -%>
 

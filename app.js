@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -67,51 +69,20 @@ app.get("/about", function(req, res) {
     res.render("about");
 });
 
-//Login Page
-
-app.get("/login", function(req, res) {
-    res.render("login");
-
-
-});
-
-app.post("/login", (req, res) => {
-    const user = new User({
-        name: req.body.contactName,
-        email: req.body.contactEmail,
-        subject: req.body.contactSubject,
-        message: req.body.contactMessage
-    });
-
-    // FindOne is working. Need to change to find one and update, currently not successful
-
-    User.findOne({ email: user.email }, function(err, foundUser) {
-        if (err) {
-            console.log(err);
-            res.render("error");
-        }
-        // Push new message to array of messages on DB
-        // Problem: CastError: Cast to string failed for value "["Test for push"]" at path "message"
-        if (foundUser) {
-            user.message.push(user.message);
-            res.render("message");
-            console.log("User with email has been found." + user.message);
-        } else {
-            user.save();
-            res.render("message");
-            console.log("This is a new user." + user.email);
-        }
-    });
-});
-
 // Contact Page
 app.get("/contact", function(req, res) {
     res.render("contact");
 });
 
-// Save contact info to schema
 app.post("/contact", function(req, res) {
 
+    let contact = {
+        name: req.body.contactName,
+        email: req.body.contactEmail,
+        subject: req.body.contactSubject,
+        message: req.body.contactMessage,
+        file: req.body.filename
+    };
 
 
 });
@@ -128,6 +99,40 @@ app.get("/error", function(req, res) {
     res.render("error");
 });
 
+//Login Page
+
+app.get("/login", function(req, res) {
+    res.render("login");
+});
+
+// app.post("/login", (req, res) => {
+//     const user = new User({
+//         name: req.body.contactName,
+//         email: req.body.contactEmail,
+//         subject: req.body.contactSubject,
+//         message: req.body.contactMessage
+//     });
+
+//     // FindOne is working. Need to change to find one and update, currently not successful
+
+//     User.findOne({ email: user.email }, function(err, foundUser) {
+//         if (err) {
+//             console.log(err);
+//             res.render("error");
+//         }
+//         // Push new message to array of messages on DB
+//         // Problem: CastError: Cast to string failed for value "["Test for push"]" at path "message"
+//         if (foundUser) {
+//             user.message.push(user.message);
+//             res.render("message");
+//             console.log("User with email has been found." + user.message);
+//         } else {
+//             user.save();
+//             res.render("message");
+//             console.log("This is a new user." + user.email);
+//         }
+//     });
+// });
 
 // Server running check
 app.listen(3000, function() {
